@@ -1,0 +1,53 @@
+input[type="number"] {
+	background-color: $light;
+	display: block;
+	padding: $base-padding;
+	margin: auto;
+	margin-bottom: $base-margin-bottom;
+	border-radius: 10px;
+	width: 90%;
+	font-size: $base-font-size;
+	box-shadow: $base-box-shadow;
+}
+
+input[type="radio"] {
+	cursor: pointer;
+}
+
+.planets-list {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+	margin-bottom: $base-margin-bottom;
+	width: 90%;
+
+	.planet {
+		text-align: center;
+		background-color: $light;
+		padding: $padding-sm;
+		color: $secondary;
+		font-size: $font-size-lg;
+		gap: 1em;
+		border-radius: $base-border-radius;
+		box-shadow: $base-box-shadow;
+	}
+}
+
+button {
+	display: block;
+	margin: auto;
+	background-color: $primary;
+	padding: $base-padding;
+	width: 90%;
+	border-radius: $base-border-radius;
+	font-size: $base-font-size;
+	margin-bottom: $base-margin-bottom;
+	color: $light;
+	box-shadow: $base-box-shadow;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 80%;
+	}
+}

@@ -1,0 +1,12 @@
+.module {
+	display: block;
+	margin: auto;
+	text-align: center;
+	background-color: $light;
+	border-radius: $base-border-radius;
+	padding: $padding-lg;
+	width: 50%;
+	color: $secondary;
+	font-size: $font-size-xl;
+	box-shadow: $base-box-shadow;
+}
