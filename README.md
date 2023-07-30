@@ -4,11 +4,17 @@
 
 > I know it's not recommended the use of too many colors, but I think it makes this app specifically fun.
 
-| **Technologies used:**    | **Last update:**             |
-| ------------------------- | ---------------------------- |
-| - Vue 3 (router included) | -UI fixed                    |
-| - Vite                    | - Color palette Updated      |
-| - Sass                    | - Functionality improvements |
+**Technologies used:**
+
+- Vue 3 (router included)
+- Vite
+- Sass
+
+  **Last update:**
+
+- UI fixed.
+- Color palette Updated.
+- Functionality improvements.
 
 ## Screenshots
 
