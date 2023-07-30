@@ -11,7 +11,7 @@ input[type="number"] {
 }
 
 input[type="radio"] {
-	cursor: pointer;
+	display: none;
 }
 
 .planets-list {
@@ -20,17 +20,35 @@ input[type="radio"] {
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1rem;
 	margin-bottom: $base-margin-bottom;
-	width: 90%;
+	width: 100%;
+	margin: auto;
+	margin-bottom: $base-margin-bottom;
 
 	.planet {
 		text-align: center;
-		background-color: $light;
+		background-color: $secondary;
+		color: $light;
+		display: flex;
+		flex-direction: column;
 		padding: $padding-sm;
-		color: $secondary;
 		font-size: $font-size-lg;
-		gap: 1em;
 		border-radius: $base-border-radius;
 		box-shadow: $base-box-shadow;
+		cursor: pointer;
+
+		&.selected {
+			background-color: $light;
+			color: $secondary;
+		}
+
+		&:hover {
+			box-shadow: 0px 0px 15px $secondary;
+		}
+
+		&:active {
+			transform: scale(0.8);
+			box-shadow: 0px 0px 15px $secondary;
+		}
 	}
 }
 
@@ -41,13 +59,17 @@ button {
 	padding: $base-padding;
 	width: 90%;
 	border-radius: $base-border-radius;
-	font-size: $base-font-size;
+	font-size: $font-size-lg;
 	margin-bottom: $base-margin-bottom;
 	color: $light;
 	box-shadow: $base-box-shadow;
 	cursor: pointer;
 
 	&:hover {
-		opacity: 80%;
+		box-shadow: 0px 0px 15px $primary;
+	}
+
+	&:active {
+		transform: scale(0.8);
 	}
 }

@@ -10,3 +10,17 @@
 	font-size: $font-size-xl;
 	box-shadow: $base-box-shadow;
 }
+
+.advice {
+	font-size: $base-font-size;
+	margin-bottom: $base-margin-bottom;
+	background-color: $terciary;
+	padding: $padding-sm;
+	color: $dark;
+	border-radius: $border-radius-circle;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	box-shadow: 0px 0px 15px $terciary;
+	cursor: help;
+}

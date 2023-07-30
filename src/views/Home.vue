@@ -1,112 +1,127 @@
 <script setup>
-	import { ref } from "vue";
+	import { ref, computed, watchEffect } from "vue";
 	import Result from "../components/Result.vue";
 	const earthWeight = ref(null);
-	const selected = ref("");
+	const selectedOption = ref(null);
 	const isCalculating = ref(false);
-	let otherPlanetWeight;
+	const otherPlanetWeight = ref(null);
 
-	// Gravity of each planet
 	const planets = [
 		{
-			name: "mercury",
+			id: 1,
+			name: "Mercury",
 			gravity: 3.7,
 		},
 		{
-			name: "venus",
+			id: 2,
+			name: "Venus",
 			gravity: 8.87,
 		},
 		{
-			name: "earth",
+			id: 3,
+			name: "Earth",
 			gravity: 9.807,
 		},
 		{
-			name: "mars",
+			id: 4,
+			name: "Mars",
 			gravity: 3.721,
 		},
 		{
-			name: "jupiter",
+			id: 5,
+			name: "Jupiter",
 			gravity: 24.79,
 		},
 		{
-			name: "saturn",
+			id: 6,
+			name: "Saturn",
 			gravity: 10.44,
 		},
 		{
-			name: "uranus",
+			id: 7,
+			name: "Uranus",
 			gravity: 8.87,
 		},
 		{
-			name: "neptune",
+			id: 8,
+			name: "Neptune",
 			gravity: 11.15,
 		},
 		{
-			name: "pluto", //IT'S NOT A PLANET!!
+			id: 9,
+			name: "Pluto", //IT'S NOT A PLANET!!
 			gravity: 0.62,
 		},
 	];
 
+	const filteredPlanets = planets.filter((planet) => planet.id != 3);
+
+	function selectRadio(id) {
+		selectedOption.value = id;
+		const labels = document.querySelectorAll(".planet");
+		labels.forEach((label) => {
+			if (label.getAttribute("for") == id) {
+				label.classList.add("selected");
+			} else {
+				label.classList.remove("selected");
+			}
+		});
+	}
+
 	function calculate() {
 		isCalculating.value = true;
-		const findEarth = planets.find((planet) => planet.name === "earth");
+		const findEarth = planets.find((planet) => planet.id === 3);
 		planets.forEach((planet) => {
-			if (selected.value == planet.name) {
-				otherPlanetWeight =
+			if (selectedOption.value === planet.name) {
+				otherPlanetWeight.value =
 					Math.floor(
 						((earthWeight.value * planet.gravity) / findEarth.gravity) * 100
 					) / 100;
 			}
 		});
-		console.log(otherPlanetWeight);
+		console.log(otherPlanetWeight.value);
 	}
 </script>
 
 <template>
-	<h1>Calculate your weight on another planet</h1>
+	<div id="app">
+		<div class="function">
+			<h1>Calculate your weight on another planet</h1>
+			<h2>Write your weight on Earth here:</h2>
+			<input type="number" v-model="earthWeight" />
 
-	<h2>Write your weight on Earth here:</h2>
-	<input type="number" v-model="earthWeight" />
+			<form>
+				<h2>Select the planet from the list:</h2>
 
-	<form>
-		<h2>Select the planet from the list</h2>
-		<div class="planets-list">
-			<input type="radio" v-model="selected" value="mercury" /><span
-				class="planet"
-				>Mercury</span
-			>
-			<input type="radio" v-model="selected" value="venus" /><span
-				class="planet"
-				>Venus</span
-			>
-			<input type="radio" v-model="selected" value="mars" /><span class="planet"
-				>Mars</span
-			>
-			<input type="radio" v-model="selected" value="jupiter" /><span
-				class="planet"
-				>Jupiter</span
-			>
-			<input type="radio" v-model="selected" value="saturn" /><span
-				class="planet"
-				>Saturn</span
-			>
-			<input type="radio" v-model="selected" value="uranus" /><span
-				class="planet"
-				>Uranus</span
-			>
-			<input type="radio" v-model="selected" value="neptune" /><span
-				class="planet"
-				>Neptune</span
-			>
-			<input type="radio" v-model="selected" value="pluto" /><span
-				class="planet"
-				>Pluto</span
-			>
+				<div class="planets-list">
+					<span v-for="planet in filteredPlanets" :key="planet.id">
+						<input
+							type="radio"
+							:id="planet.id"
+							:value="planet.name"
+							v-model="selectedOption"
+						/>
+						<label
+							class="planet"
+							:for="planet.id"
+							@click="selectRadio(planet.id)"
+							>{{ planet.name }}</label
+						>
+					</span>
+				</div>
+			</form>
+			<button @click="calculate">Calculate!!</button>
+			<div class="advice">
+				<span>ℹ</span
+				><span>
+					And remember, Pluto isn't a planet, don't ask why I put it here :v
+				</span>
+			</div>
 		</div>
-	</form>
-	<button @click="calculate">Calculate!!</button>
-
-	<div id="result" v-show="isCalculating">
-		<Result :result="otherPlanetWeight"></Result>
+		<div class="result">
+			<div v-show="isCalculating">
+				<Result :result="otherPlanetWeight"></Result>
+			</div>
+		</div>
 	</div>
-	<p>And remember, Pluto isn't a planet, don't ask why I put it here :v</p>
 </template>

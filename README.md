@@ -2,15 +2,13 @@
 
 ### A simple app that can tell you your weight on any another planet of the Solar System _(Not finished)_
 
-**Technologies used:**
+> I know it's not recommended the use of too many colors, but I think it makes this app specifically fun.
 
-- Vue 3 (router included)
-- Vite
-- Sass
-
-**Last update:**
-
-- All the project was converted into a Vue application. 
+| **Technologies used:**    | **Last update:**             |
+| ------------------------- | ---------------------------- |
+| - Vue 3 (router included) | -UI fixed                    |
+| - Vite                    | - Color palette Updated      |
+| - Sass                    | - Functionality improvements |
 
 ## Screenshots
 
@@ -18,6 +16,6 @@
 
 _Phone View_
 
-<!-- ![desktop view](./public/screenshots/desktop-view.png)
+![desktop view](./public/screenshots/desktop-view.png)
 
-_Desktop View_ -->
+_Desktop View_
