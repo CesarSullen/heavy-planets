@@ -1,6 +1,6 @@
 # Heavy Planets
 
-### A simple app that can tell you your weight on any another planet of the Solar System _(Not finished)_
+### A simple app that can tell you your weight on any another planet of the Solar System
 
 > I know it's not recommended the use of too many colors, but I think it makes this app specifically fun.
 
@@ -15,6 +15,7 @@
 - UI fixed.
 - Color palette Updated.
 - Functionality improvements.
+- Updated the advice.
 
 ## Screenshots
 
