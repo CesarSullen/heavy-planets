@@ -88,7 +88,7 @@
 		<div class="function">
 			<h1>Calculate your weight on another planet</h1>
 			<h2>Write your weight on Earth here:</h2>
-			<input type="number" v-model="earthWeight" />
+			<input type="text" v-model="earthWeight" />
 
 			<form>
 				<h2>Select the planet from the list:</h2>
